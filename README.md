@@ -25,7 +25,7 @@ Technology
         - http://sidekiq.org
 
 - File Storage
-    - CephFS/Rados
+    - Ceph
         - http://ceph.com/docs/master/radosgw/s3/ruby/
 
 Models
