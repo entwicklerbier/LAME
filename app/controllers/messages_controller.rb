@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = current_user.messages.all
   end
 
   # GET /messages/1
@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = current_user.messages.new
   end
 
   # GET /messages/1/edit
@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
     respond_to do |format|
       if @message.save
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
@@ -65,7 +65,7 @@ class MessagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
-      @message = Message.find(params[:id])
+      @message = current_user.messages.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
