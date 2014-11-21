@@ -1,7 +1,7 @@
 node.default['postgresql']['config']['listen_addresses'] = node['database']['listen_addresses']
 
 node['database']['create'].each do |database|
-  node.default['postgresql']['pg_hba'].push({:comment => '# App servers', :type => 'host', :db => database['name'], :user => database['username'], :addr => node['database']['listen_range'], :method => 'md5'})
+  node.default['postgresql']['pg_hba'].push({:comment => '# App servers', :type => 'host', :db => database['name'], :users => database['username'], :addr => node['database']['listen_range'], :method => 'md5'})
 end
 
 include_recipe 'lame::common'

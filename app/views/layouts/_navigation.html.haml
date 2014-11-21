@@ -3,6 +3,12 @@
     %li.name= link_to 'Home', root_path
     %li.toggle-topbar.menu-icon
       %a{:href => "#"} Menu
+
   .top-bar-section
-    %ul
+    %ul.right
+      - if user_signed_in?
+        %li
+          = link_to 'Profile', edit_user_path(current_user)
+  .top-bar-section
+    %ul.left
       = render 'layouts/navigation_links'
