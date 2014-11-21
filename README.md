@@ -5,7 +5,7 @@ Leave A MessagE - A simple location based messenger Service.
 
 Description
 ------
-Google Maps Style interface: Drop Pin -> Leave Message 
+Google Maps Style interface: Drop Pin -> Leave Message
 
 Needs user account with image -> image gets displayed with message
 
@@ -60,3 +60,13 @@ Models
 | timestamp |
 +-----------+
 ```
+
+Installation
+------
+git clone
+vagrant up
+vagrant ssh
+cd /var/www/lame/current/
+bundle install
+bundle exec rake db:migrate
+rails s
