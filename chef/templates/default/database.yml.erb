@@ -1,11 +1,14 @@
 <% node['database']['create'].each do |database| %>
 
 <%= database['env'] %>:
-  adapter: postgresql
+  adapter: postgis
   encoding: unicode
   pool: 5
   database: <%= database['name'] %>
   host: <%= node['database']['host'] %>
   username: <%= database['username'] %>
   password: <%= database['password'] %>
+  su_username: postgres
+  su_password: <%= node['postgresql']['password']['postgres'] %>
+  schema_search_path: public
 <% end %>

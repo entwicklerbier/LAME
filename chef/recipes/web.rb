@@ -4,6 +4,7 @@ include_recipe 'postgis'
 include_recipe 'ruby_install'
 include_recipe 'chruby'
 include_recipe 'git'
+include_recipe 'nodejs'
 
 # Prevents ssh timeout when installing ruby
 Thread.new do
