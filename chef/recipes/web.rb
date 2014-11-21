@@ -5,6 +5,7 @@ include_recipe 'ruby_install'
 include_recipe 'chruby'
 include_recipe 'git'
 include_recipe 'nodejs'
+include_recipe 'imagemagick'
 
 # Prevents ssh timeout when installing ruby
 Thread.new do

@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   has_many :messages
+
+
+  mount_uploader :avatar, AvatarUploader
 end
