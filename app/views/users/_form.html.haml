@@ -14,6 +14,8 @@
   .field
     = f.label :avatar
     %br/
+
+    %img{src: current_user.avatar.url}
     = f.file_field :avatar
   .actions
     = f.submit
