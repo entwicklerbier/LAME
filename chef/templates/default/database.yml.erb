@@ -1,0 +1,11 @@
+<% node['database']['create'].each do |database| %>
+
+<%= database['env'] %>:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: <%= database['name'] %>
+  host: <%= node['database']['host'] %>
+  username: <%= database['username'] %>
+  password: <%= database['password'] %>
+<% end %>
