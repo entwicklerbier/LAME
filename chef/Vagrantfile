@@ -20,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.berkshelf.enabled = true
+  config.berkshelf.berksfile_path = "./Berksfile"
 
   config.vm.provision :chef_solo do |chef|
 
