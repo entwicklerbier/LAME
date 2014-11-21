@@ -30,6 +30,13 @@ gem 'haml'
 
 gem 'activerecord-postgis-adapter'
 
+gem 'foundation-rails'
+
+group :development do
+  gem 'rails_layout'
+  gem 'erb2haml'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
