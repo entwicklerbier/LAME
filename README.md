@@ -64,9 +64,11 @@ Models
 Installation
 ------
 git clone
+cd chef
 vagrant up
 vagrant ssh
 cd /var/www/lame/current/
 bundle install
+rake db:gis:setup
 bundle exec rake db:migrate
 rails s
