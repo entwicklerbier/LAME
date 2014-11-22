@@ -7,6 +7,28 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
+    @geo = []
+
+    @messages.each do |message|
+      @geo << {
+        type: 'Feature',
+        geometry: {
+          type: message.lonlat.geometry_type.type_name,
+          coordinates: [message.lonlat.x, message.lonlat.y]
+        },
+        properties: {
+          title: message.content,
+          :'marker-color'  => '#FD8204',
+          :'marker-symbol' => 'circle',
+          :'marker-size'   => 'large'
+        }
+      }
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @geo }
+    end
   end
 
   # GET /messages/1
