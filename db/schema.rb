@@ -11,11 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121172550) do
+ActiveRecord::Schema.define(version: 20141121184103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "message_views", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "message_views", ["message_id"], :name => "index_message_views_on_message_id"
+  add_index "message_views", ["user_id"], :name => "index_message_views_on_user_id"
 
   create_table "messages", force: true do |t|
     t.text     "content"

@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'haml'
 
 gem 'activerecord-postgis-adapter'
+gem 'squeel'
 
 gem 'foundation-rails'
 
@@ -41,6 +42,10 @@ gem 'devise'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'sidekiq'
+
+gem 'sinatra'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

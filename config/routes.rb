@@ -1,9 +1,12 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   get 'user/edit'
 
   devise_for :users
   resources :messages
   resources :users
+
+  mount Sidekiq::Web => '/sidekiq'
 
   root 'messages#index'
 

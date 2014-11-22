@@ -7,6 +7,12 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
+    @messages.each do |msg|
+      MessageView.create(message: msg, user: current_user)
+    end
+
+    StatsWorker.perform_async(-180, 90, 180, -90)
+    ViewStatsWorker.perform_async(-180, 90, 180, -90)
   end
 
   # GET /messages/1
