@@ -15,5 +15,6 @@
  */
 
 body { margin:0; padding:0; }
-#map-container { min-height:100vh; }
-#map { position:absolute; top:0; bottom:0; width:100%; }
+main { padding:0; }
+#map-container { min-height:100vh; min-width:100%; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; margin:0 auto; background-color:#EEEEEE; }

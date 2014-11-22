@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
-  skip_before_filter :authenticate_user!, only: :index
+  skip_before_filter :authenticate_user!, only: [:index]
 
   # GET /messages
   # GET /messages.json
@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
         type: 'Feature',
         geometry: {
           type: message.lonlat.geometry_type.type_name,
-          coordinates: [message.lonlat.x, message.lonlat.y]
+          coordinates: [message.lonlat.y, message.lonlat.x]
         },
         properties: {
           title: message.content,
