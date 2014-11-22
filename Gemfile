@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'haml'
 
+gem 'rgeo-geojson'
 gem 'activerecord-postgis-adapter'
 gem 'squeel'
 
