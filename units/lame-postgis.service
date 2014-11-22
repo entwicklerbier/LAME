@@ -1,0 +1,12 @@
+ [Unit]
+Description=Lame Postgis
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill lame-postgis
+ExecStartPre=/usr/bin/docker pull registry.ws.tld/lame-postgis
+ExecStart=/usr/bin/docker run -rm --name lame-postgis -v $HOME/postgres_data:/var/lib/postgresql postgis:2.1 -D FOREGROUND
+
+ExecStop=/usr/bin/docker stop lame-postgis

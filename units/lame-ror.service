@@ -1,0 +1,22 @@
+[Unit]
+Description=Lame
+After=docker.service
+After=lame-postgis.service
+After=lame-sidekick.service
+Requires=docker.service
+Requires=lame-postgis.service
+Requires=lame-sidekick.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill lame
+ExecStartPre=/usr/bin/docker pull registry.ws.tld/lame
+ExecStart=/usr/bin/docker run -rm --name lame lame -D FOREGROUND
+
+ExecStop=/usr/bin/docker stop lame
+
+# khor: Die env LAME_DATABASE_HOST muss für die app-container gesetzt sein
+# [9:00pm] khor: docker run -d -v ~/postgres_data:/var/lib/postgresql registry.ws.tld/docker-postgis
+# [9:00pm] sven: sdfsdf
+# [9:02pm] khor: CONTAINER_IP=$(sudo docker inspect -f '{{ .NetworkSettings.IPAddress }}'$CONTAINER)
+# [9:02pm] khor: LAME_DATABASE_HOST=$(sudo docker inspect -f '{{ .NetworkSettings.IPAddress # }}'$CONTAINER)
